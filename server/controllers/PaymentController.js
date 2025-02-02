@@ -86,7 +86,7 @@ const newOrderId = async (req, res) => {
     });
   } catch (error) {
     console.error("Error processing order:", error.response ? error.response.data : error.message);
-    return res.status(500).send({
+    return res.status(404).send({
       message: error.message,
       success: false,
     });
