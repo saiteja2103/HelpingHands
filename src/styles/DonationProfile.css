@@ -1,0 +1,77 @@
+.profile-bg {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://source.unsplash.com/1600x900/?profile,charity") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  border: 2px solid #007bff;
+}
+
+.donation-profile-bg {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../../public/assests/sunrise.jpg") no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.tabs-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+.tab-content h4 {
+  margin-bottom: 20px;
+}
+
+.tab-content .list-group-item {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab-content .list-group-item:last-child {
+  border-bottom: none;
+}
+
+.tab-content .list-group-item span {
+  display: block;
+  flex: 1;
+}
+
+.tab-content .list-group-item img {
+  margin-top: 10px;
+  margin-left: 20px;
+  flex-shrink: 0;
+}

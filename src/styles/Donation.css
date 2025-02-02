@@ -1,0 +1,35 @@
+.donation-bg, .fundraise-bg {
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../../public/assests/donate.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .donation-form, .fundraise-form {
+    background: white;
+    border-radius: 10px;
+    border: solid white 1px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .donation-form h2, .fundraise-form h2 {
+    font-weight: bold;
+    color: #f5efef;
+  }
+  
+  .donation-form button, .fundraise-form button {
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .donation-form .form-label, .fundraise-form .form-label {
+    font-weight: 500;
+    color: #faf9f9;
+  }
+  
