@@ -1,13 +1,19 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
+const dotenv = require('dotenv');
+const connectDB = require('./Connection');
+const router = require('./route');
+const path = require('path');
+dotenv.config()
 
-app.use(express.json());
-// Ensure CORS is set up before defining your routes
-app.use(cors());
+const port  = process.env.PORT || 5000 
+const app = express()
 
-// Optionally, you can explicitly allow specific origins:
-app.use(cors({ origin: 'https://donation-fundraise-platform-badp.vercel.app' }));
+app.use(express.json())
+app.use(cors())
+
+// Serve static files from the /assets directory
+// app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 try {
   connectDB(process.env.MONGO_URL)
@@ -17,10 +23,5 @@ try {
 } catch (err) {
   console.log("Error")
 }
-// Define your routes
-app.use('/api', router);
 
-// Optionally handle OPTIONS requests explicitly if needed:
-app.options('*', cors());
-
-module.exports = app;
+app.use('/api', router)
