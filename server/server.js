@@ -10,7 +10,7 @@ const port  = process.env.PORT || 5000
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({ origin: '*' }));
 
 // Serve static files from the /assets directory
 // app.use('/assets', express.static(path.join(__dirname, 'assets')));
