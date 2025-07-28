@@ -3,32 +3,38 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./Connection');
 const router = require('./route');
+
 dotenv.config();
 
 const port = process.env.PORT || 5000;
 const app = express();
 
-// ✅ Set CORS before everything else
+// ✅ CORS Configuration
 const corsOptions = {
-  origin: '*', // Change to 'https://yourfrontend.vercel.app' if needed
+  origin: 'https://helpinghands21.vercel.app', // ✅ Replace with your actual frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true, // ✅ Allow cookies/auth headers if needed
   allowedHeaders: ['Content-Type', 'Authorization']
 };
+
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // ✅ Handle OPTIONS requests
+
+// ✅ Preflight handler for all OPTIONS requests
+app.options('*', cors(corsOptions));
 
 // ✅ JSON Middleware
 app.use(express.json());
 
-// ✅ Database Connection
-try {
-  connectDB(process.env.MONGO_URL);
-  app.listen(port, () => {
-    console.log(`Server started on port ${port}...`);
+// ✅ Connect DB and Start Server
+connectDB(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}...`);
+    });
+  })
+  .catch((err) => {
+    console.error("Database connection error:", err);
   });
-} catch (err) {
-  console.error("Error:", err);
-}
 
 // ✅ Define Routes AFTER Middleware
 app.use('/api', router);
